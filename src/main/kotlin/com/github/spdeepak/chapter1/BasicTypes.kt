@@ -96,8 +96,15 @@ fun main(args: Array<String>) {
 	//To represent a literal $ sign in a string
 	val p = "$9.69"
 	println("$p")
-	val price = """$
-	{'$'}9.99"""
+	val price = """${'$'}9.99"""
 	println("Price: $price")
+	println("Printing $ sign as a prefix to a text in kotlin can be done like this $9.99")
+
+	//create ranges from one number to another
+	val oneToTenInt = 1..10 //Int Range
+	println("${oneToTenInt.javaClass}")
+
+	val oneToTenLong = 1L..10L
+	println("${oneToTenLong.javaClass}")
 
 }
