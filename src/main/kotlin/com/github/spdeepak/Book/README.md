@@ -29,11 +29,11 @@ Now, What if there are annotations to be used on a constructor? Then you can jus
 
 Kotlin has initializer blocks to initialise code which can be created by using the keyword **`init`**. And they are executed in the order of appearance.
 <br/><br/>
-<code>
-**class** DemoForInit(name: **String**) {<br/>
+>
+**class** DemoForInit(name: **String**) {<br/><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**val** _firstVariable_ = "This is the first variable"<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**init**{<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**println**("This method is self understandable that this is an initializer method. (_**$firstVariable**_)")<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
 }
-</code>
+>
