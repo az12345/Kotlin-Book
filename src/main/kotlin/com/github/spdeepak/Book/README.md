@@ -1,4 +1,8 @@
 # Easy Kotlin Tutorial for Java Programmers
+Others can also read there are very few references to Java. It is written by keeping in mind that the reader knows Basic Java.
+
+
+
 ## Chapter 5
 ### Classes and Inheritance
 Lets see how to create an empty class in Kotlin
