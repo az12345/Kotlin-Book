@@ -94,6 +94,6 @@ NOTE: If we specify a constructor with default values in it when creating a clas
 
 Well if you guessed it as using the `new` keyword then you are **wrong**. You just read it before already. Well, you might have missed it. it can be created as shown below
 ```kotlin
-val classInstance = ClassWithEmptyPrimaryConstructor()
-val person = ClassWithOneParameterPrimaryConstructor("Deepak")
+val classInstance = EmptyClass()
+val person = ClassWithAPrimaryConstructor("Deepak")
 ```
