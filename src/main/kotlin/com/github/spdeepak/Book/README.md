@@ -44,7 +44,7 @@ class DemoForUsageOfPublicConstructor public @Inject constructor(val firstName: 
     //..
 }
 ```
-####Secondary Constructors
+#### Secondary Constructors
 Secondary constructors can be created as shown below.
 ```kotlin
 class DemoForUsageOfSecondaryConstructor {
