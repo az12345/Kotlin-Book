@@ -1,5 +1,5 @@
 # Easy Kotlin Tutorial for Java Programmers
-Others can also read there are very few references to Java. It is written by keeping in mind that the reader knows Basic Java.
+Others can also read. There are very few references to Java. But, it is written by keeping in mind that the reader knows Basic Java.
 
 
 
