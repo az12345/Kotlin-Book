@@ -53,6 +53,47 @@ class DemoForUsageOfSecondaryConstructor {
     constructor(name: String){
         this.name = name
     }
+    fun printName() {
+    	println("Name is: $name")
+    }
     //..
 }
+fun main(args: Array<String>) {
+	DemoForUsageOfSecondaryConstructor("Deepak").printName()
+}
+```
+
+What if the class already has Primary constructor? Then we will have to delegate the primary constructor from the secondary constructor using the `this` keyword. It is shown below. 
+```kotlin
+class DemoForUsageOfSecondaryConstructor(firstName: String, lastName: String) {
+	var fullName: String? = null
+	var age: Int? = null
+	//..
+	constructor(firstName: String, lastName: String, age: Int) : this(firstName, lastName) {
+		this.fullName = firstName.plus(" $lastName")
+		this.age = age
+	}
+	fun printName() {
+		println("$fullName's age is $age")
+	}
+	//..
+}
+fun main(args: Array<String>) {
+	DemoForUsageOfSecondaryConstructor("Deepak", "SP", 26).printName()
+}
+```
+If we create a non-abstract class with out a constructor then a public no argument default constructor will be created. If you want the default constructor to be private then you will have to specify it.
+```kotlin
+class ClassWithPrivateConstructor private constructor(){
+
+}
+```
+NOTE: If we specify a constructor with default values in it when creating a class then JVM will create a parameterless constructor which will use the default values.
+
+### Create Objects of a class
+
+Well if you guessed it as using the `new` keyword then you are **wrong**. You just read it before already. Well, you might have missed it. it can be created as shown below
+```kotlin
+val classInstance = ClassWithEmptyPrimaryConstructor()
+val person = ClassWithOneParameterPrimaryConstructor("Deepak")
 ```
