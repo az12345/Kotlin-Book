@@ -1,4 +1,4 @@
-package com.github.spdeepak.chapter3
+package com.github.spdeepak.code.chapter3
 
 import java.lang.Integer.parseInt
 

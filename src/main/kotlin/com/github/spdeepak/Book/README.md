@@ -1,4 +1,4 @@
-# Easy Kotlin Tutorial for Java Programmers
+# Learn Kotlin for Java Programmers
 
 ## Chapter 1
 
@@ -283,6 +283,7 @@ class Derived : Base() {
     }   
 }
 ```
+**NOTE:** Remember `super@ClassName.member()` can only be used in `inner` classes.
 
 #### Interfaces
 
@@ -318,6 +319,8 @@ class Derived:Base,Dummy{
 }
 ```
 
+**NOTE:**  `super@ClassName.member()` can only be used in `inner` class and not in inherited/implemented classes. For calling `Base` class members in a `Derived` class or an interface implemented class we will have to use `super<Base>.member()` or `super<Interface>.member()` (if the `interface` has its own default implementation)  
+
 #### Abstract Classes
 
 Abstract classes in kotlin work the same way as in Java. For example.
@@ -333,3 +336,40 @@ abstract class Derived: Base(){
 ```
 
 We don't need to mark `abstract` functions as `open`. if a method is marked `abstract` it is considered as `open` without any saying.
+
+#### Static Methods
+
+Kotlin does not have static methods like Java. But there are situations where we would like to have something like that, which we will discuss in future chapters.
+
+## Chapter 6
+
+### Properties and Fields
+
+Let's discuss about properties in Kotlin, or as we have been calling as Variables in Java.
+
+#### Declaring Properties
+
+Kotlin classes can have something called properties. Mutable properties are declared using `var` and immutable/read-only ones are declared using `val`.
+
+```kotlin
+class Person{
+    var firstName: String = ...
+    var lastName: String = ...
+    var email: String = ...
+}
+```
+
+To use these properties we can call them the way we call methods in Java
+
+```kotlin
+fun copyPerson(person: Person): Person{
+    val result = Person()
+    result.firstName = person.firstName
+    resut.lastName = person.lastName
+    result.email = person.email
+    return result
+}
+```
+
+#### Getters and Setters
+

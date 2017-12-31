@@ -1,4 +1,4 @@
-package com.github.spdeepak.chapter3
+package com.github.spdeepak.code.chapter3
 
 fun main(args: Array<String>) {
 	val collection: Collection<String> = listOf("Shoe", "Bag", "Phone")

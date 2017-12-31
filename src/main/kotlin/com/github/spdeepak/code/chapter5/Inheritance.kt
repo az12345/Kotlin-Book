@@ -1,4 +1,4 @@
-package com.github.spdeepak.chapter5
+package com.github.spdeepak.code.chapter5
 
 //Super class must have the keyword open at the start  Because by default all classes are considered as final
 open class SuperClass {

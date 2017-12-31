@@ -1,4 +1,4 @@
-package com.github.spdeepak.chapter1
+package com.github.spdeepak.code.chapter1
 
 fun main(args: Array<String>) {
 

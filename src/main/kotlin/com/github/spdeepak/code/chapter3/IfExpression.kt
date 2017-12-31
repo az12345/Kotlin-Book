@@ -1,4 +1,4 @@
-package com.github.spdeepak.chapter3
+package com.github.spdeepak.code.chapter3
 
 fun main(args: Array<String>) {
 	var max = 1

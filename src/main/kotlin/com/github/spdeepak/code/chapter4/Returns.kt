@@ -1,4 +1,4 @@
-package com.github.spdeepak.chapter4
+package com.github.spdeepak.code.chapter4
 
 fun main(args: Array<String>) {
 	var ints = 50..55

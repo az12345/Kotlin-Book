@@ -1,4 +1,4 @@
-package com.github.spdeepak.chapter5
+package com.github.spdeepak.code.chapter5
 
 
 open class Foo {
