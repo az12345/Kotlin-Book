@@ -161,7 +161,6 @@ open class Base {
     	println("The Base value of l: $l")
     }
 }
-
 class Derived : Base {
  	constructor(i: Int) : super(i) {
  	    println("The Base value of i: $i")
@@ -171,7 +170,6 @@ class Derived : Base {
          println("The Base value of l: $l")
      }
  }
-
 fun main(args: Array<String>) {
 	Derived(10)
 	Derived(10, 10L)
@@ -207,7 +205,6 @@ open class Base{
     open fun canOverride() { }
     fun cannotOverride() { }
 }
-
 class Derived: Base{
     override fun canOverride() { }
 }
@@ -240,7 +237,6 @@ But there is one rule to be remembered here. We can override a `val` as `var` bu
 
 ```kotlin
 class Foo(override val x: Int): Base
-
 class Boo: Base{
     override var x: Int = 20
 }
@@ -255,7 +251,6 @@ open class Base {
     open fun canOverride() { println("Base.canOverride()") }
     open val x: Int = 10
 }
-
 class Derived : Base() {
     override fun canOverride() { 
         super.canOverride()
@@ -329,7 +324,6 @@ Abstract classes in kotlin work the same way as in Java. For example.
 open class Base{
     open fun foo(){}
 }
-
 abstract class Derived: Base(){
     override abstract fun foo()
 }
@@ -372,4 +366,121 @@ fun copyPerson(person: Person): Person{
 ```
 
 #### Getters and Setters
+
+Syntax of declaring a `var` property is as follows
+
+```kotlin
+var <propertyName>[: <PropertyType>] [= <property_initializer>]
+    [<getter>]
+    [<setter>]
+```
+
+`PropertyType` is optional as it can be inferred from the return type or form the return type of the getter.
+
+We will get an error if we just declare a `var` property as shown below. As explicit initializer is required. Getter and Setter are implied by default.
+
+```kotlin
+var x: Int?
+```
+
+How to initialise it?
+
+```kotlin
+var x: Int = 10 //This has a default getter and setter
+```
+
+Now coming to `val`, a read-only property. If we just declare a property without initializing it we will not get an error like we get for `var` and also `val` does not allow a Setter.
+
+```kotlin
+val x: Int? //Type Int, default Getter, must be initialized in constructor
+val inferredType = 100.00 //Type Double and a default Getter
+```
+
+Stuff to remember about `val` property
+1. Can only have a `getter` and not a `setter`
+2. Can be initialized in constructor
+3. Can set return value from its `getter` by not initializing it at all; as `getter` will return its `value` when the property is accessed
+
+Stuff to remember about `var` property
+1. Can have both `getter` and `setter`.
+2. Has to be initialized even if it has a `setter`; not needed if property is `abstract`
+
+So, now. How do we write a custom `Getter` and `Setter`?
+
+```kotlin
+val isEmpty: Boolean
+    get() = this.size == 0 //size being another property in the class
+```
+
+```kotlin
+var stringRepresentation: String
+    get() = this.toString()
+    set(value) { 
+        setDataFromString(value) // parses the string and assigns values to other properties
+    }
+```
+
+**NOTE:** Name of the parameter is `value` by convention which can be changed if needed.
+
+If we are going to use a `getter` then we can omit the property type.
+
+```kotlin
+val isNotEmpty get() = this.size == 0 //size being another property in the class
+```
+As we know already that `val` cannot have a `setter` but only `getter` but `var` can have both. What if we want the `setter` of `var` also to `private` we can mark it as `private`. If so, then it will have the default implementation.
+
+```kotlin
+val visibilityOfSetter: Int = 100
+    private set
+```
+
+We can annotate the `setter` as well.
+
+```kotlin
+val annotateSetter: Stirng = "Kotlin"
+    @Inject set
+```
+
+
+
+```kotlin
+open class Foo {
+	var captain: String = ""
+		get() {
+			return "Hello, ".plus(field) //plus is Kotlin's concat
+		}
+		set(value) { //Custom Setter, can also be used to assign values to other properties as shown 
+			println("Set is Invoked")
+			field = modifyString(value).plus("!!") //can also be done as field = value?.toUpperCase().plus("!!")
+			println("field is $field")
+		}
+	var lowerCaseString: String = ""
+	fun modifyString(string: String): String {
+		lowerCaseString = string.toLowerCase()
+		return string.toUpperCase()
+	}
+	val y = 21
+	open val x: Int
+		get() {
+			return 10 * y
+		}
+}
+open class Boo: Foo() {
+   	override val x: Int
+   		get() {
+   			return super.x * (super.x * 10)
+   		}
+   	val isNotEmpty get() = this.y == 21
+}
+fun main(args: Array<String>) {
+	val foo = Foo()
+	foo.captain = "Deepak"
+	println(foo.captain)
+	println(foo.lowerCaseString)
+	val boo = Boo()
+	println("Value of x: ${foo.x}")
+	println("value of y: ${boo.y}")
+	println("${boo.isNotEmpty}")
+}
+```
 
